@@ -5,43 +5,79 @@
 class IdeGen < Formula
   desc ""
   homepage "https://github.com/xxxbobrxxx/ide-gen"
-  version "0.0.2"
+  version "0.0.3"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/xxxbobrxxx/ide-gen/releases/download/v0.0.2/ide-gen_0.0.2_Darwin_arm64.tar.gz"
-      sha256 "16b249e7e20a75e5d6e7c1741611a09321b77d4c72bdeb16209fbe643a461096"
+      url "https://github.com/xxxbobrxxx/ide-gen/releases/download/v0.0.3/ide-gen_0.0.3_Darwin_arm64.tar.gz"
+      sha256 "852e9f6454fe4bedf0a2d7edd7f334aaf577c02359a0048743f43a31f47baf71"
 
       def install
         bin.install "ide-gen"
+
+        # Install bash completion
+        output = Utils.safe_popen_read(bin/"ide-gen", "completion", "bash")
+        (bash_completion/"ide-gen").write output
+
+        # Install zsh completion
+        output = Utils.safe_popen_read(bin/"ide-gen", "completion", "zsh")
+        (zsh_completion/"_ide-gen").write output
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/xxxbobrxxx/ide-gen/releases/download/v0.0.2/ide-gen_0.0.2_Darwin_x86_64.tar.gz"
-      sha256 "5d01d8a3ec504337d01be01edcdc0d3da8093675b796307406ffa58a6c36283d"
+      url "https://github.com/xxxbobrxxx/ide-gen/releases/download/v0.0.3/ide-gen_0.0.3_Darwin_x86_64.tar.gz"
+      sha256 "34df5b351e23731c1f6640d4c49e13b851278f9ed3dc8f839c8107428bc8e848"
 
       def install
         bin.install "ide-gen"
+
+        # Install bash completion
+        output = Utils.safe_popen_read(bin/"ide-gen", "completion", "bash")
+        (bash_completion/"ide-gen").write output
+
+        # Install zsh completion
+        output = Utils.safe_popen_read(bin/"ide-gen", "completion", "zsh")
+        (zsh_completion/"_ide-gen").write output
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/xxxbobrxxx/ide-gen/releases/download/v0.0.2/ide-gen_0.0.2_Linux_arm64.tar.gz"
-      sha256 "748da5337c1a6effb253e824ee81913be36b7033ba3c4c3d1b86eb3af0b2044b"
+      url "https://github.com/xxxbobrxxx/ide-gen/releases/download/v0.0.3/ide-gen_0.0.3_Linux_arm64.tar.gz"
+      sha256 "8cb77fc2ee9e1d7d2fdc04483e17c2f35a628225552f2e9512b65747daa8673f"
 
       def install
         bin.install "ide-gen"
+
+        # Install bash completion
+        output = Utils.safe_popen_read(bin/"ide-gen", "completion", "bash")
+        (bash_completion/"ide-gen").write output
+
+        # Install zsh completion
+        output = Utils.safe_popen_read(bin/"ide-gen", "completion", "zsh")
+        (zsh_completion/"_ide-gen").write output
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/xxxbobrxxx/ide-gen/releases/download/v0.0.2/ide-gen_0.0.2_Linux_x86_64.tar.gz"
-      sha256 "d64799ee47dd102df5364c8764095aec455e8fa5f6daa055c639e1b31bd25542"
+      url "https://github.com/xxxbobrxxx/ide-gen/releases/download/v0.0.3/ide-gen_0.0.3_Linux_x86_64.tar.gz"
+      sha256 "5952aa4708fb3070a7fc4fb286cbee84436949fed538c10992d7b3662c79e82a"
 
       def install
         bin.install "ide-gen"
+
+        # Install bash completion
+        output = Utils.safe_popen_read(bin/"ide-gen", "completion", "bash")
+        (bash_completion/"ide-gen").write output
+
+        # Install zsh completion
+        output = Utils.safe_popen_read(bin/"ide-gen", "completion", "zsh")
+        (zsh_completion/"_ide-gen").write output
       end
     end
+  end
+
+  test do
+    system "#{bin}/ide-gen version"
   end
 end
