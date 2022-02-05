@@ -5,12 +5,12 @@
 class IdeGen < Formula
   desc ""
   homepage "https://github.com/xxxbobrxxx/ide-gen"
-  version "0.0.2"
+  version "0.0.3"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/xxxbobrxxx/ide-gen/releases/download/v0.0.2/ide-gen_0.0.2_Darwin_arm64.tar.gz"
-      sha256 "687b1a96ccaf999c9306bc807b44be526c66826eb0e0f6b1a7ed58358ad1a6de"
+      url "https://github.com/xxxbobrxxx/ide-gen/releases/download/v0.0.3/ide-gen_0.0.3_Darwin_arm64.tar.gz"
+      sha256 "06517596d0fd814fd49cb3d64da247324b28b58c096daac33239d7abfd50dd62"
 
       def install
         bin.install "ide-gen"
@@ -25,8 +25,8 @@ class IdeGen < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/xxxbobrxxx/ide-gen/releases/download/v0.0.2/ide-gen_0.0.2_Darwin_x86_64.tar.gz"
-      sha256 "6dda54698a0224063d41baff1db0a22181deee19d8595294cffd052e2474e92f"
+      url "https://github.com/xxxbobrxxx/ide-gen/releases/download/v0.0.3/ide-gen_0.0.3_Darwin_x86_64.tar.gz"
+      sha256 "f09d1196738da2cc1ecba4ab3a0134056ffd517215028b429a8402d716a8d8c1"
 
       def install
         bin.install "ide-gen"
@@ -44,8 +44,8 @@ class IdeGen < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/xxxbobrxxx/ide-gen/releases/download/v0.0.2/ide-gen_0.0.2_Linux_arm64.tar.gz"
-      sha256 "7b971d6ad3c8bf40d207462399a15613fd86bccb2a360cabf54932d452f233d7"
+      url "https://github.com/xxxbobrxxx/ide-gen/releases/download/v0.0.3/ide-gen_0.0.3_Linux_arm64.tar.gz"
+      sha256 "fa3dff6434e55f7249bfad1bf26f28b936e20773bd4e1b4b340e1339e9012568"
 
       def install
         bin.install "ide-gen"
@@ -60,8 +60,8 @@ class IdeGen < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/xxxbobrxxx/ide-gen/releases/download/v0.0.2/ide-gen_0.0.2_Linux_x86_64.tar.gz"
-      sha256 "f4393195c483aa7b426226dd93a119d95243923ba7a0f39ec790edf87235bdbd"
+      url "https://github.com/xxxbobrxxx/ide-gen/releases/download/v0.0.3/ide-gen_0.0.3_Linux_x86_64.tar.gz"
+      sha256 "356dc97b81c55671640ed5ee10a837b32d72df2c47a0704ffee108a1ffffbd64"
 
       def install
         bin.install "ide-gen"
