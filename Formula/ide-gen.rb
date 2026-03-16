@@ -5,12 +5,12 @@
 class IdeGen < Formula
   desc ""
   homepage "https://github.com/vladarts/ide-gen"
-  version "0.0.5"
+  version "0.0.6"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/vladarts/ide-gen/releases/download/v0.0.5/ide-gen_Darwin_arm64.tar.gz"
-      sha256 "337499258a908e9ecce5affe5a3a95bfc8fa86b157705f3b43ca92b755ef1707"
+    if Hardware::CPU.intel?
+      url "https://github.com/vladarts/ide-gen/releases/download/v0.0.6/ide-gen_Darwin_x86_64.tar.gz"
+      sha256 "cb530b499818d2e8a575c32a202f0bae5ab1aa6a4ffd588ca96cfc8c32a02921"
 
       def install
         bin.install "ide-gen"
@@ -22,9 +22,9 @@ class IdeGen < Formula
         (zsh_completion/"_ide-gen").write output
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/vladarts/ide-gen/releases/download/v0.0.5/ide-gen_Darwin_x86_64.tar.gz"
-      sha256 "03208c5e45c2889160c5b8938eff52e6c727cdd537a15c5a1191056bbff4020f"
+    if Hardware::CPU.arm?
+      url "https://github.com/vladarts/ide-gen/releases/download/v0.0.6/ide-gen_Darwin_arm64.tar.gz"
+      sha256 "19445cfae01e7788a82779ed069947da18376168f156a2b30760b4b8d935bba9"
 
       def install
         bin.install "ide-gen"
@@ -39,10 +39,9 @@ class IdeGen < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/vladarts/ide-gen/releases/download/v0.0.5/ide-gen_Linux_arm64.tar.gz"
-      sha256 "904184c9caf8d9a29d9a0adc19901be1e0cafbb3c774226ae46ce33e237bd847"
-
+    if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
+      url "https://github.com/vladarts/ide-gen/releases/download/v0.0.6/ide-gen_Linux_x86_64.tar.gz"
+      sha256 "620de4502e9b71d49c00f47556b4bb5ca6a1175c4f869babc3d11c4745233c83"
       def install
         bin.install "ide-gen"
         # Install bash completion
@@ -53,10 +52,9 @@ class IdeGen < Formula
         (zsh_completion/"_ide-gen").write output
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/vladarts/ide-gen/releases/download/v0.0.5/ide-gen_Linux_x86_64.tar.gz"
-      sha256 "7f82108d67dfdd1b7ea249c48283ac743995626c8748b326f7939469df8376b8"
-
+    if Hardware::CPU.arm? and Hardware::CPU.is_64_bit?
+      url "https://github.com/vladarts/ide-gen/releases/download/v0.0.6/ide-gen_Linux_arm64.tar.gz"
+      sha256 "62cab3b41145abc426623d28af26683d49cb6a2e466e36db52ff4fef16d0538f"
       def install
         bin.install "ide-gen"
         # Install bash completion
